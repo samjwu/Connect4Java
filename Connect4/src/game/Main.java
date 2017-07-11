@@ -34,6 +34,16 @@ public class Main {
 	public String toString() {
 		//https://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html
 		StringBuilder boardcontents = new StringBuilder();
+		
+		for (int j = 0; j < width; j++) {
+            for (int i = 0; i < length; i++) {
+                boardcontents.append(board[j][i]);
+                boardcontents.append(" ");
+            }
+
+            boardcontents.append("\n");
+        }
+		
 		return boardcontents.toString();
 	}
 	
@@ -44,7 +54,7 @@ public class Main {
 		Main board = new Main(7, 6);
 		System.out.println("Connect 4");
 		System.out.println("Enter a number to place a piece in a column (1 to 7)");
-		//System.out.println(board);
+		System.out.println(board);
 		
 	}
 }
