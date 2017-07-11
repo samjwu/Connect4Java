@@ -35,12 +35,12 @@ public class Main {
 		//https://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html
 		StringBuilder boardcontents = new StringBuilder();
 		
+		//add length # of pieces to make row, then add width # of rows to make board
 		for (int j = 0; j < width; j++) {
             for (int i = 0; i < length; i++) {
-                boardcontents.append(board[j][i]);
+                boardcontents.append(board[j][i]); //add piece
                 boardcontents.append(" ");
             }
-
             boardcontents.append("\n");
         }
 		
@@ -50,11 +50,15 @@ public class Main {
 	//main function to run game
 	public static void main(String[] args) {
 		
-		Scanner input = new Scanner(System.in);
-		Main board = new Main(7, 6);
+		int nummoves = 42; //7x6=42
+		boolean playerturn = true;
+		Main board = new Main(7, 6); //game board is 7x6
+		
 		System.out.println("Connect 4");
 		System.out.println("Enter a number to place a piece in a column (1 to 7)");
 		System.out.println(board);
+		
+		Scanner input = new Scanner(System.in);
 		
 	}
 }
