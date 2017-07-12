@@ -55,10 +55,10 @@ public class Main {
 	}
 	
 	//function for players to move
-	public void move(char symbol, Scanner input) {
+	public void move(char chip, Scanner input) {
 		while (true) {
 			//get player input column
-			System.out.println("Player " + symbol + " turn: ");
+			System.out.println("Player " + chip + " turn: ");
 			int col = input.nextInt();
 			
 			//check for valid input
@@ -71,7 +71,7 @@ public class Main {
 			for (int i = width - 1; i >= 0; i--) {
 				//recall columns are zero indexed
 				if (board[i][col-1] == space) {
-					board[i][col-1] = symbol;
+					board[i][col-1] = chip;
 					prevrow = i;
 					prevcol = col-1;
 					return;
@@ -80,6 +80,7 @@ public class Main {
 			
 			//else if column is full
 			System.out.println("Column " + col + " is full. You may not place a chip there.");
+			//continue
 		}
 	}
 	
@@ -87,7 +88,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		int nummoves = 42; //7x6=42
-		boolean playerturn = true;
+		int playerturn = 0; //players are 0 and 1
 		Main board = new Main(7, 6); //game board is 7x6
 		
 		System.out.println("Connect 4");
@@ -96,5 +97,27 @@ public class Main {
 		
 		Scanner input = new Scanner(System.in);
 		
+		
+		while (true) {
+			//get chip based on player turn
+			char chip = symbols[playerturn];
+			
+			//do a player's turn
+			board.move(chip, input);
+			System.out.println(board);
+			
+			//next player turn
+			playerturn = 1 - playerturn;
+			
+			
+			//decrement number of moves
+			nummoves--;
+			if (nummoves == 0) {
+				return;
+			}
+		}
+		
+		//if no more moves left and there is no winner
+		//System.out.println("Tie. Game Over.");
 	}
 }
