@@ -85,6 +85,11 @@ public class Main {
 		}
 	}
 	
+	//function to check if a player wins the game
+	public boolean win() {
+		return false;
+	}
+	
 	//main function to run game
 	public static void main(String[] args) {
 		
@@ -110,6 +115,7 @@ public class Main {
 			//next player turn
 			playerturn = 1 - playerturn;
 			
+			//check if a player wins the game
 			
 			//decrement number of moves
 			nummoves--;
