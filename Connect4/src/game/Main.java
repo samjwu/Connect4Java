@@ -58,8 +58,9 @@ public class Main {
 	public void move(char chip, Scanner input) {
 		while (true) {
 			//get player input column
-			System.out.println("Player " + chip + " turn: ");
+			System.out.print("Player " + chip + " turn: ");
 			int col = input.nextInt();
+			System.out.println("");
 			
 			//check for valid input
 			if (col < 1 || col > length) {
@@ -92,7 +93,7 @@ public class Main {
 		Main board = new Main(7, 6); //game board is 7x6
 		
 		System.out.println("Connect 4");
-		System.out.println("Enter a number to place a piece in a column (1 to 7)");
+		System.out.println("Enter a number to place a piece in a column (1 to 7)\n");
 		System.out.println(board);
 		
 		Scanner input = new Scanner(System.in);
@@ -113,11 +114,11 @@ public class Main {
 			//decrement number of moves
 			nummoves--;
 			if (nummoves == 0) {
-				return;
+				break;
 			}
 		}
 		
 		//if no more moves left and there is no winner
-		//System.out.println("Tie. Game Over.");
+		System.out.println("Game Over. Tie.");
 	}
 }
