@@ -15,7 +15,14 @@ public class Main {
 	private final int width;
 	private final char[][] board;
 	
+	//https://stackoverflow.com/questions/4018851/final-and-static-in-java
+	//http://www.alt-codes.net/
+	private final static char[] symbols = new char[] {'☻', '☺'};
+	//private final static char[] symbols = new char[] {'X', '○'};
 	private final char space = '*';
+	
+	private int prevrow = -1;
+	private int prevcol = -1;
 	
 	//constructor for Main class
 	public Main (int length, int width) {
