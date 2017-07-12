@@ -54,6 +54,35 @@ public class Main {
 		return boardcontents.toString();
 	}
 	
+	//function for players to move
+	public void move(char symbol, Scanner input) {
+		while (true) {
+			//get player input column
+			System.out.println("Player " + symbol + " turn: ");
+			int col = input.nextInt();
+			
+			//check for valid input
+			if (col < 1 || col > length) {
+				System.out.println("You can only place a chip in columns 1 to " + width);
+                continue;
+			}
+			
+			//place the chip in the column indicated by input
+			for (int i = width - 1; i >= 0; i--) {
+				//recall columns are zero indexed
+				if (board[i][col-1] == space) {
+					board[i][col-1] = symbol;
+					prevrow = i;
+					prevcol = col-1;
+					return;
+				}
+			}
+			
+			//else if column is full
+			System.out.println("Column " + col + " is full. You may not place a chip there.");
+		}
+	}
+	
 	//main function to run game
 	public static void main(String[] args) {
 		
