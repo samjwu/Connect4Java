@@ -107,6 +107,11 @@ public class Main {
 		return new String(board[prevrow]);
 	}
 	
+	//return String containing the chip types (symbols) in the last played column
+	private String verticalline() {
+		return new String(board[prevcol]);
+	}
+	
 	//main function to run game
 	public static void main(String[] args) {
 		
