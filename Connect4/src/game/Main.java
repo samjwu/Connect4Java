@@ -94,12 +94,12 @@ public class Main {
 
 		//get the last played chip type (symbol)
 		char chip = board[prevrow][prevcol];
-		//if all four chips in a String are the same, then that player wins
+		//if all four chips in a row in a String are the same, then that player wins
 		String fourinarow = String.format("%c%c%c%c", chip, chip, chip, chip);
 		
-		//return all possible String combinations
+		//return all possible String line combinations
 		//https://www.tutorialspoint.com/java/lang/string_contains.htm
-		return horizontalline().contains(fourinarow);
+		return horizontalline().contains(fourinarow) || verticalline().contains(fourinarow);
 	}
 	
 	//return String containing the chip types (symbols) in the last played row
@@ -109,7 +109,12 @@ public class Main {
 	
 	//return String containing the chip types (symbols) in the last played column
 	private String verticalline() {
-		return new String(board[prevcol]);
+		StringBuilder column = new StringBuilder(width);
+		//go down the rows in a column
+		for (int i = 0; i < width; i++) {
+			column.append(board[i][prevcol]);
+		}
+		return column.toString();
 	}
 	
 	//main function to run game
