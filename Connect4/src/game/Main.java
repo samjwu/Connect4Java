@@ -87,7 +87,24 @@ public class Main {
 	
 	//function to check if a player wins the game
 	public boolean win() {
-		return false;
+		//moves have not been made
+		if (prevcol == -1) {
+			return false;
+		}
+
+		//get the last played chip type (symbol)
+		char chip = board[prevrow][prevcol];
+		//if all four chips in a String are the same, then that player wins
+		String fourinarow = String.format("%c%c%c%c", chip, chip, chip, chip);
+		
+		//return all possible String combinations
+		//https://www.tutorialspoint.com/java/lang/string_contains.htm
+		return horizontalline().contains(fourinarow);
+	}
+	
+	//return String containing the chip types (symbols) in the last played row
+	private String horizontalline() {
+		return new String(board[prevrow]);
 	}
 	
 	//main function to run game
