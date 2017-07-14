@@ -121,6 +121,9 @@ public class Main {
 	/**
 	 * Gets all coordinates in an ascending diagonal
 	 * starting from the top right, moves down and leftwards to the bottom left coordinate
+	 * Note outer loop increments by 1 and inner loop decrements by 1
+	 * (net gain/loss is 0)
+	 * which corresponds to loop invariant [column + row = constant] for ascending diagonal
 	 * @return diagonal (String): contains the chip types (symbols) in the last played ascending diagonal
 	 */
 	private String ascendingdiagonalline() {
@@ -143,6 +146,9 @@ public class Main {
 	/**
 	 * Gets all coordinates in a descending diagonal
 	 * starting from the top left, moves down and rightwards to the bottom right coordinate
+	 * Note outer loop increments by 1 and inner loop increments by 1
+	 * (net gain is 2)
+	 * which corresponds to loop invariant [current column + row = previous column + row + 2] for descending diagonal
 	 * @return diagonal (String): contains the chip types (symbols) in the last played descending diagonal
 	 */
 	private String descendingdiagonalline() {
