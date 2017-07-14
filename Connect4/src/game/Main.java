@@ -97,9 +97,10 @@ public class Main {
 		//if all four chips in a row in a String are the same, then that player wins
 		String fourinarow = String.format("%c%c%c%c", chip, chip, chip, chip);
 		
-		//return all possible String line combinations
+		//get all possible String line combinations
+		//check if the Strings contain four of the same chip types (symbols) in a row
 		//https://www.tutorialspoint.com/java/lang/string_contains.htm
-		return horizontalline().contains(fourinarow) || verticalline().contains(fourinarow);
+		return horizontalline().contains(fourinarow) || verticalline().contains(fourinarow) || ascendingdiagonalline().contains(fourinarow);
 	}
 	
 	//return String containing the chip types (symbols) in the last played row
