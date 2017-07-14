@@ -110,11 +110,26 @@ public class Main {
 	//return String containing the chip types (symbols) in the last played column
 	private String verticalline() {
 		StringBuilder column = new StringBuilder(width);
-		//go down the rows in a column
+		//go down the rows (y) in a column (x)
 		for (int i = 0; i < width; i++) {
 			column.append(board[i][prevcol]);
 		}
 		return column.toString();
+	}
+	
+	//return String containing the chip types (symbols) in the last played ascending diagonal
+	private String ascendingdiagonalline() {
+		StringBuilder diagonal = new StringBuilder(width);
+		//i goes down the rows (y) in a column (x)
+		for (int i = 0; i < width; i++) {
+			//j gets the column (x)
+			//note for any coordinate in a diagonal, x + y or col + row are the same
+			int j = prevcol + prevrow - i;
+			if (j >= 0 && j < length) {
+				diagonal.append(board[i][j]);
+			}
+		}
+		return diagonal.toString();
 	}
 	
 	//main function to run game
