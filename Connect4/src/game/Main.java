@@ -100,7 +100,7 @@ public class Main {
 		//get all possible String line combinations
 		//check if the Strings contain four of the same chip types (symbols) in a row
 		//https://www.tutorialspoint.com/java/lang/string_contains.htm
-		return horizontalline().contains(fourinarow) || verticalline().contains(fourinarow) || ascendingdiagonalline().contains(fourinarow);
+		return horizontalline().contains(fourinarow) || verticalline().contains(fourinarow) || ascendingdiagonalline().contains(fourinarow) || descendingdiagonalline().contains(fourinarow);
 	}
 	
 	//return String containing the chip types (symbols) in the last played row
