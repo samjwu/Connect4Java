@@ -142,20 +142,20 @@ public class Main {
 	
 	/**
 	 * Gets all coordinates in a descending diagonal
-	 * starting from the  coordinate
+	 * starting from the top left, moves down and rightwards to the bottom right coordinate
 	 * @return diagonal (String): contains the chip types (symbols) in the last played descending diagonal
 	 */
 	private String descendingdiagonalline() {
 		StringBuilder diagonal = new StringBuilder(width);
-		//i goes down the columns (x) in a row (y)
-		for (int j = 0; j < length; j++) {
-			//i gets the row (y)
+		//i goes down the rows (y) in a column (x)
+		for (int i = 0; i < width; i++) {
+			//j gets the column (x)
 			//note for any coordinate in a descending diagonal, successive coordinates (x + y) or (column + row) increase by 2
-			//when j = 0, current coordinate is the  of diagonal
-			//when j = length - 1, current coordinate is the  of diagonal
-			int i = prevcol + prevrow + j;
+			//when i = 0, current coordinate is the top-left of diagonal
+			//when i = width - 1, current coordinate is the bottom-right of diagonal
+			int j = prevcol - prevrow + i;
 			//add the coordinate only if it is legal (on the board)
-			if (i >= 0 && i < width) {
+			if (j >= 0 && j < width) {
 				diagonal.append(board[i][j]);
 			}
 		}
