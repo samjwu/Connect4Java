@@ -128,12 +128,34 @@ public class Main {
 		//i goes down the rows (y) in a column (x)
 		for (int i = 0; i < width; i++) {
 			//j gets the column (x)
-			//note for any coordinate in a diagonal, x + y or column + row are the same
+			//note for any coordinate in an ascending diagonal, x + y or column + row are the same
 			//when i = 0, current coordinate is the top-right of diagonal
-			//when i = width - 1, current coordinate is bottom-left of diagonal
+			//when i = width - 1, current coordinate is the bottom-left of diagonal
 			int j = prevcol + prevrow - i;
 			//add the coordinate only if it is legal (on the board)
 			if (j >= 0 && j < length) {
+				diagonal.append(board[i][j]);
+			}
+		}
+		return diagonal.toString();
+	}
+	
+	/**
+	 * Gets all coordinates in a descending diagonal
+	 * starting from the  coordinate
+	 * @return diagonal (String): contains the chip types (symbols) in the last played descending diagonal
+	 */
+	private String descendingdiagonalline() {
+		StringBuilder diagonal = new StringBuilder(width);
+		//i goes down the columns (x) in a row (y)
+		for (int j = 0; j < length; j++) {
+			//i gets the row (y)
+			//note for any coordinate in a descending diagonal, successive coordinates (x + y) or (column + row) increase by 2
+			//when j = 0, current coordinate is the  of diagonal
+			//when j = length - 1, current coordinate is the  of diagonal
+			int i = prevcol + prevrow + j;
+			//add the coordinate only if it is legal (on the board)
+			if (i >= 0 && i < width) {
 				diagonal.append(board[i][j]);
 			}
 		}
