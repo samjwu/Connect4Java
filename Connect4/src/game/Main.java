@@ -117,14 +117,21 @@ public class Main {
 		return column.toString();
 	}
 	
-	//return String containing the chip types (symbols) in the last played ascending diagonal
+	/**
+	 * Gets all coordinates in an ascending diagonal
+	 * starting from the top right, moves down and leftwards to the bottom left coordinate
+	 * @return diagonal (String): contains the chip types (symbols) in the last played ascending diagonal
+	 */
 	private String ascendingdiagonalline() {
 		StringBuilder diagonal = new StringBuilder(width);
 		//i goes down the rows (y) in a column (x)
 		for (int i = 0; i < width; i++) {
 			//j gets the column (x)
-			//note for any coordinate in a diagonal, x + y or col + row are the same
+			//note for any coordinate in a diagonal, x + y or column + row are the same
+			//when i = 0, current coordinate is the top-right of diagonal
+			//when i = width - 1, current coordinate is bottom-left of diagonal
 			int j = prevcol + prevrow - i;
+			//add the coordinate only if it is legal (on the board)
 			if (j >= 0 && j < length) {
 				diagonal.append(board[i][j]);
 			}
