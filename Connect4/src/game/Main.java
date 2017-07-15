@@ -190,19 +190,27 @@ public class Main {
 			board.move(chip, input);
 			System.out.println(board);
 			
+			//check if a player wins the game
+			if (board.win()) {
+				System.out.println("GAME OVER");
+				System.out.println("Player " + chip + " wins");
+				return;
+			}
+			
 			//next player turn
 			playerturn = 1 - playerturn;
 			
-			//check if a player wins the game
-			
 			//decrement number of moves
 			nummoves--;
+			
+			//end game if no moves left
 			if (nummoves == 0) {
 				break;
 			}
 		}
 		
 		//if no more moves left and there is no winner
-		System.out.println("Game Over. Tie.");
+		System.out.println("GAME OVER");
+		System.out.println("Tie");
 	}
 }
