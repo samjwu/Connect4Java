@@ -5,10 +5,14 @@ import java.util.Scanner;
 /**
  * 
  * Class to run Connect Four game
+ * uses Board class and Symbols enumerator
  *
  */
 public class Main {
-	//main function to run game
+	/**
+	 * Main function to run game
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		
 		int nummoves = 42; //7x6=42
