@@ -6,6 +6,8 @@ import java.util.Scanner;
 /**
  * 
  * Class to create board for Connect Four game
+ * as well as game logic
+ * for making moves and checking win conditions
  *
  */
 public class Board {
@@ -24,7 +26,11 @@ public class Board {
 	private int prevrow = -1;
 	private int prevcol = -1;
 	
-	//constructor for Board class
+	/**
+	 * constructor for Board class
+	 * @param length (int): long side of board (all the columns)
+	 * @param width (int): short side of board (all the rows)
+	 */
 	public Board (int length, int width) {
 		this.length = length;
 		this.width = width;
@@ -37,8 +43,11 @@ public class Board {
 		}
 	}
 	
-	@Override
-	//print the board contents
+	/**
+	 * @Override
+	 * Print the board contents as a String
+	 * @return String that represents the board
+	 */
 	public String toString() {
 		//https://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html
 		StringBuilder boardcontents = new StringBuilder();
@@ -55,7 +64,11 @@ public class Board {
 		return boardcontents.toString();
 	}
 	
-	//function for players to move
+	/**
+	 * Function for players to move
+	 * @param chip (char): char symbol representing a chip
+	 * @param input (Scanner): to get player input for column to place chip
+	 */
 	public void move(char chip, Scanner input) {
 		while (true) {
 			//get player input column
@@ -86,7 +99,10 @@ public class Board {
 		}
 	}
 	
-	//function to check if a player wins the game
+	/**
+	 * Function to check if a player wins the game
+	 * @return boolean indicating true for a win and false otherwise
+	 */
 	public boolean win() {
 		//moves have not been made
 		if (prevcol == -1) {
@@ -104,12 +120,18 @@ public class Board {
 		return horizontalline().contains(fourinarow) || verticalline().contains(fourinarow) || ascendingdiagonalline().contains(fourinarow) || descendingdiagonalline().contains(fourinarow);
 	}
 	
-	//return String containing the chip types (symbols) in the last played row
+	/**
+	 * Gets all the columns in the last played row
+	 * @return String containing the chip types (symbols) in the last played row
+	 */
 	private String horizontalline() {
 		return new String(board[prevrow]);
 	}
 	
-	//return String containing the chip types (symbols) in the last played column
+	/**
+	 * Goes down all the rows in the last played column
+	 * @return String containing the chip types (symbols) in the last played column
+	 */
 	private String verticalline() {
 		StringBuilder column = new StringBuilder(width);
 		//go down the rows (y) in a column (x)
