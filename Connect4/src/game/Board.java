@@ -184,7 +184,7 @@ public class Board {
 			//when i = width - 1, current coordinate is the bottom-right of diagonal
 			int j = prevcol - prevrow + i;
 			//add the coordinate only if it is legal (on the board)
-			if (j >= 0 && j < width) {
+			if (j >= 0 && j < length) {
 				diagonal.append(board[i][j]);
 			}
 		}
